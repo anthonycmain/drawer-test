@@ -4,6 +4,8 @@ import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { Drawer } from 'expo-router/drawer';
 
 import { useColorScheme } from '@/components/useColorScheme';
 
@@ -49,10 +51,31 @@ function RootLayoutNav() {
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-      </Stack>
+       <GestureHandlerRootView style={{ flex: 1 }}>
+        <Drawer>
+          <Drawer.Screen
+            name="(drawer)/index" // This is the name of the page and must match the url from root
+            options={{
+              drawerLabel: 'One',
+              title: 'overview 1',
+            }}
+          />
+          <Drawer.Screen
+            name="(drawer)/two" // This is the name of the page and must match the url from root
+            options={{
+              drawerLabel: 'Two',
+              title: 'overview 2',
+            }}
+          />
+          <Drawer.Screen
+            name="a" // This is the name of the page and must match the url from root
+            options={{
+              drawerLabel: 'A',
+              title: 'overview A',
+            }}
+          />
+        </Drawer>
+      </GestureHandlerRootView>
     </ThemeProvider>
   );
 }
