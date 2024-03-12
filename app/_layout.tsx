@@ -54,24 +54,17 @@ function RootLayoutNav() {
        <GestureHandlerRootView style={{ flex: 1 }}>
         <Drawer>
           <Drawer.Screen
-            name="(drawer)/index" // This is the name of the page and must match the url from root
-            options={{
-              drawerLabel: 'One',
-              title: 'overview 1',
-            }}
-          />
-          <Drawer.Screen
-            name="(drawer)/two" // This is the name of the page and must match the url from root
-            options={{
-              drawerLabel: 'Two',
-              title: 'overview 2',
-            }}
-          />
-          <Drawer.Screen
             name="a" // This is the name of the page and must match the url from root
             options={{
               drawerLabel: 'A',
               title: 'overview A',
+            }}
+          />
+          <Drawer.Screen
+            name="b" // This is the name of the page and must match the url from root
+            options={{
+              drawerLabel: 'B',
+              title: 'overview B',
             }}
           />
         </Drawer>
